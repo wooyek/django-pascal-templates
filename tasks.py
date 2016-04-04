@@ -61,34 +61,11 @@ def update_pypi():
     run("heroku run python src/manage.py migrate")
 
 
-@task(assets)
 def release():
     """
     Collect and compile assets, add, commit and push to production remote
     """
     bump(patch=True)
-    update_production()
+    update_pypi()
 
 
-
-if __name__ == "__main__":
-    print("""
-To finish setting up a project run:
-
-  inv boostrap
-
-
-To list all tasks run:
-
-  inv --list
-
-
-Install invoke first if not yet available
-
-  pip install invoke
-
-
-I you run on issues OSError, try installing a previous version
-
-  pip install invoke==0.11.1 -U
-    """)

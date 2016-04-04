@@ -56,13 +56,17 @@ def bump(patch=True):
 
 
 @task
-def update_pypi():
+def register_pypi():
     run("git checkout master")
-    run("git push production master  --verbose")
-    run("heroku run python src/manage.py migrate")
+    run("python setup.py register -r pypi")
+
+@task
+def upload_pypi():
+    run("git checkout master")
+    run("python setup.py rtm upload -r pypi")
 
 
-@task(bump, update_pypi)
+@task(bump, upload_pypi)
 def release():
     """
     Collect and compile assets, add, commit and push to production remote

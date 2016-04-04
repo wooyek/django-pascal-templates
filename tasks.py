@@ -63,7 +63,7 @@ def register_pypi():
 @task
 def upload_pypi():
     run("git checkout master")
-    run("python setup.py rtm upload -r pypi")
+    run("python setup.py sdist upload -r pypi")
 
 
 @task(bump, upload_pypi)

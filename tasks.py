@@ -50,7 +50,7 @@ def bump(patch=True):
     else:
         run("bumpversion minor")
     run("git push origin master --verbose")
-    run("git checkout develop --verbose")
+    run("git checkout develop")
     run("git merge master --verbose")
     run("git push origin develop --verbose")
 

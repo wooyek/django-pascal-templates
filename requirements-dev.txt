@@ -1,0 +1,3 @@
+invoke==0.11.1
+pathlib
+bumpversion

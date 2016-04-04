@@ -20,9 +20,9 @@ with open("README.rst") as readme:
 from pascal_templates import __version__ as version
 
 setup_kwargs = {
-    'name': "flask-social-blueprint",
+    'name': "django-pascal-templates",
     'version': version,
-    'packages': find_packages("src"),
+    'packages': find_packages("src", exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     'package_dir': {'': 'src'},
     'install_requires': [str(r.req) for r in install_requires],
 
@@ -31,12 +31,12 @@ setup_kwargs = {
     # },
 
     'author': "Janusz Skonieczny",
-    'author_email': "js@bravelabs.pl",
-    'description': "An OAuth based authentication blueprint for flask. Easy to extend and override",
+    'author_email': "js+pypi@bravelabs.pl",
+    'description': "Django generic views with PascalCase template paths with model named folders.",
     'long_description': long_description,
     'license': "MIT",
-    'keywords': "flask social oauth authentication",
-    'url': "https://github.com/wooyek/flask-social-blueprint",
+    'keywords': "django template folder dictionary pascal models",
+    'url': "https://github.com/wooyek/django-pascal-templates",
     'classifiers': [
         'Programming Language :: Python',
         'Development Status :: 4 - Beta',
@@ -49,7 +49,7 @@ setup_kwargs = {
         'Topic :: Software Development :: Libraries :: Application Frameworks',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    'test_suite': 'flask_social_blueprint.tests.suite'
+    'test_suite': 'pascal_templates.tests'
 }
 
 setup(**setup_kwargs)

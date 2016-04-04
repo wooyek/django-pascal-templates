@@ -24,9 +24,9 @@ class TemplatePathMixin(object):
         return self.template_name_suffix
 
 
-class SinglePascalCaseTemplateMixin(SingleObjectTemplateResponseMixin, TemplatePathMixin):
+class SinglePascalCaseTemplateMixin(TemplatePathMixin, SingleObjectTemplateResponseMixin):
     def get_template_names(self):
-        names = super().get_template_names()
+        names = super(SinglePascalCaseTemplateMixin, self).get_template_names()
         if isinstance(self.object, models.Model):
             meta = self.object._meta
             if self.object._deferred:
@@ -40,9 +40,9 @@ class SinglePascalCaseTemplateMixin(SingleObjectTemplateResponseMixin, TemplateP
         return names
 
 
-class MultiplePascalCaseTemplateMixin(MultipleObjectTemplateResponseMixin, TemplatePathMixin):
+class MultiplePascalCaseTemplateMixin(TemplatePathMixin, MultipleObjectTemplateResponseMixin):
     def get_template_names(self):
-        names = super().get_template_names()
+        names = super(MultiplePascalCaseTemplateMixin, self).get_template_names()
         if hasattr(self.object_list, 'model'):
             meta = self.object_list.model._meta
             template_path = self.get_template_path(meta, app_label=meta.app_label, object_name=meta.object_name)

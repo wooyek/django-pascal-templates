@@ -6,5 +6,5 @@
 # PROPRIETY TRADE SECRETS of Brave Labs sp. z o.o.
 # Use is subject to license terms. See NOTICE file of this project for details.
 
-__version__ = "0.8.4"
+__version__ = "0.8.5"
 from .views import *

@@ -55,17 +55,17 @@ def bump(patch=True):
     run("git push origin develop --verbose")
 
 
+@task
 def update_pypi():
     run("git checkout master")
     run("git push production master  --verbose")
     run("heroku run python src/manage.py migrate")
 
 
+@task(bump, update_pypi)
 def release():
     """
     Collect and compile assets, add, commit and push to production remote
     """
-    bump(patch=True)
-    update_pypi()
 
 

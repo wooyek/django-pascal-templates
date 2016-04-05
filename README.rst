@@ -3,6 +3,13 @@ django-pascal-templates
 
 Django generic views with PascalCase template paths with model named folders.
 
+https://github.com/wooyek/django-pascal-templates
+
+.. image:: https://travis-ci.org/wooyek/django-pascal-templates.svg
+
+.. image:: https://coveralls.io/repos/wooyek/django-pascal-templates/badge.svg?branch=develop&service=github :target: https://coveralls.io/github/wooyek/django-pascal-templates?branch=develop
+
+
 Replace your usual generic view imports with:
 
 .. code:: python

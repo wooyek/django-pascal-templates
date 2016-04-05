@@ -23,7 +23,13 @@ class TestPascalTemplateMixins(TestCase):
             class Meta:
                 app_label = "some_app"
 
+        class SomeProxyModel(SomeModel):
+            class Meta:
+                app_label = "some_app"
+                proxy = True
+
         cls.model = SomeModel
+        cls.proxy = SomeProxyModel
 
     def test_template_name_suffix(self):
         mixin = SinglePascalCaseTemplateMixin()
@@ -45,6 +51,13 @@ class TestPascalTemplateMixins(TestCase):
         mixin.model = self.model
         names = mixin.get_template_names()
         self.assertEqual(['some_app/somemodel_detail.html', 'some_app/SomeModel/detail.html'], names)
+
+    def test_proxy_names(self):
+        mixin = SinglePascalCaseTemplateMixin()
+        mixin.object = None
+        mixin.model = self.proxy
+        names = mixin.get_template_names()
+        self.assertEqual(['some_app/someproxymodel_detail.html', 'some_app/SomeProxyModel/detail.html'], names)
 
     def test_object_names(self):
         mixin = SinglePascalCaseTemplateMixin()

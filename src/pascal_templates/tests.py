@@ -7,15 +7,15 @@
 # Use is subject to license terms. See NOTICE file of this project for details.
 from unittest import TestCase
 
-import django
-from django.conf import settings
-from django.db import models
 from pascal_templates.views import SinglePascalCaseTemplateMixin, DetailView, DateDetailView, CreateView, DeleteView, UpdateView, ListView
 
 
 class TestPascalTemplateMixins(TestCase):
     @classmethod
     def setUpClass(cls):
+        import django
+        from django.conf import settings
+        from django.db import models
         settings.configure()
         django.setup()
 

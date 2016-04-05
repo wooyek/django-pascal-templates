@@ -11,6 +11,8 @@ https://github.com/wooyek/django-pascal-templates
 .. image:: https://img.shields.io/coveralls/wooyek/django-pascal-templates.svg   
    :target: https://coveralls.io/github/wooyek/django-pascal-templates
 
+Usage
+-----
 
 Replace your usual generic view imports with:
 

@@ -52,7 +52,7 @@ class TestPascalTemplateMixins(TestCase):
         names = mixin.get_template_names()
         self.assertEqual(['some_app/somemodel_detail.html', 'some_app/SomeModel/detail.html'], names)
 
-    def test_proxy_names(self):
+    def test_proxy_model_names(self):
         mixin = SinglePascalCaseTemplateMixin()
         mixin.object = None
         mixin.model = self.proxy
@@ -64,6 +64,12 @@ class TestPascalTemplateMixins(TestCase):
         mixin.object = self.model()
         names = mixin.get_template_names()
         self.assertEqual(['some_app/somemodel_detail.html', 'some_app/SomeModel/detail.html'], names)
+
+    def test_proxy_object_names(self):
+        mixin = SinglePascalCaseTemplateMixin()
+        mixin.object = self.proxy()
+        names = mixin.get_template_names()
+        self.assertEqual(['some_app/someproxymodel_detail.html', 'some_app/SomeProxyModel/detail.html'], names)
 
     def test_ListView(self):
         view = ListView()

@@ -15,7 +15,11 @@ install:
 
 script: coverage run --source=pascal_templates --module unittest discover src
 
+after_success:
+  coveralls
+
 branches:
   only:
     - develop
     - master
+

@@ -13,7 +13,7 @@ cache:
 install:
   - pip install -r requirements.txt -r requirements-dev.txt
 
-script: python -m unittest discover src
+script: coverage run --source=pascal_templates --module unittest discover src
 
 branches:
   only:

@@ -1,10 +1,6 @@
 # coding=utf-8
-# Copyright 2015 Brave Labs sp. z o.o.
-# All rights reserved.
-#
-# This source code and all resulting intermediate files are CONFIDENTIAL and
-# PROPRIETY TRADE SECRETS of Brave Labs sp. z o.o.
-# Use is subject to license terms. See NOTICE file of this project for details.
+# Copyright 2016 Janusz Skonieczny
+
 from unittest import TestCase
 
 from pascal_templates.views import SinglePascalCaseTemplateMixin, DetailView, DateDetailView, CreateView, DeleteView, UpdateView, ListView

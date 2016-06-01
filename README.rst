@@ -34,3 +34,18 @@ And in result get additional template_names allowing you to keep templates in fo
       'some_app/somemodel_detail.html',
       'some_app/SomeModel/detail.html',   # This is what you get
     ]
+
+In effect you can use a nice folder structure with templates that are easy to manage:
+
+.. code:: bash
+
+   templates
+   ├── SomeModel
+   │   ├── detail.html
+   │   ├── form.html
+   │   └── list.html
+   ├── SomeOtherModel
+   │   ├── detail.html
+   │   ├── form.html
+   │   └── list.html
+

@@ -44,8 +44,6 @@ class SinglePascalCaseTemplateMixin(TemplatePathMixin, SingleObjectTemplateRespo
         """
         if isinstance(self.object, models.Model):
             meta = self.object._meta
-            if self.object._deferred:
-                meta = self.object._meta.proxy_for_model._meta
             return self.get_template_path(meta, app_label=meta.app_label, object_name=meta.object_name, template_name_suffix=template_name_suffix)
         elif hasattr(self, 'model') and self.model is not None and issubclass(self.model, models.Model):
             meta = self.model._meta

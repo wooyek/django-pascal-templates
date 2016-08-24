@@ -15,9 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
-import os
 import sys
-from time import sleep
 from pathlib import Path
 from invoke import run, task
 
@@ -29,7 +27,6 @@ VENV_BIN = VENV_DIR / ("Scripts" if is_win else "bin")
 PYTHON = VENV_BIN / 'python'
 PIP = VENV_BIN / 'pip'
 MANAGE = '{} {} '.format(PYTHON, SRC_DIR / 'manage.py')
-
 
 logging.basicConfig(format='%(asctime)s %(levelname)-7s %(thread)-5d %(filename)s:%(lineno)s | %(funcName)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 logging.getLogger().setLevel(logging.INFO)
@@ -60,6 +57,7 @@ def register_pypi():
     run("git checkout master")
     run("python setup.py register -r pypi")
 
+
 @task
 def upload_pypi():
     run("git checkout master")
@@ -71,5 +69,3 @@ def release():
     """
     Collect and compile assets, add, commit and push to production remote
     """
-
-

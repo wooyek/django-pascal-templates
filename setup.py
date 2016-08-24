@@ -17,7 +17,7 @@ install_requires = parse_requirements(
 with open("README.rst") as readme:
     long_description = readme.read()
 
-version = "0.8.8"
+version = "0.8.9"
 
 setup_kwargs = {
     'name': "django-pascal-templates",

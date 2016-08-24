@@ -35,7 +35,7 @@ logging.debug('Loading %s', __name__)
 
 
 @task
-def bump(patch=True):
+def bump(ctx, patch=True):
     run("git checkout develop")
     run("git pull origin develop --verbose")
     run("git push origin develop --verbose")
@@ -53,19 +53,19 @@ def bump(patch=True):
 
 
 @task
-def register_pypi():
+def register_pypi(ctx):
     run("git checkout master")
     run("python setup.py register -r pypi")
 
 
 @task
-def upload_pypi():
+def upload_pypi(ctx):
     run("git checkout master")
     run("python setup.py sdist upload -r pypi")
 
 
 @task(bump, upload_pypi)
-def release():
+def release(ctx):
     """
     Collect and compile assets, add, commit and push to production remote
     """

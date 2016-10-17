@@ -14,7 +14,7 @@ install_requires = parse_requirements(
     os.path.join(os.path.dirname(__file__), "requirements.txt"),
     session=uuid.uuid1()
 )
-with open("README.rst") as readme:
+with open("README.rst", encoding="UTF-8") as readme:
     long_description = readme.read()
 
 version = "0.8.9"

@@ -1,5 +1,5 @@
 invoke==0.11.1
 pathlib
 bumpversion
-coverage
+coverage==4.2
 coveralls

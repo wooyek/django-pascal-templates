@@ -5,6 +5,7 @@ import os
 import uuid
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
+import io
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 SRC_DIR = os.path.join(ROOT_DIR, 'src')
@@ -14,7 +15,7 @@ install_requires = parse_requirements(
     os.path.join(os.path.dirname(__file__), "requirements.txt"),
     session=uuid.uuid1()
 )
-with open("README.rst", encoding="UTF-8") as readme:
+with io.open("README.rst", encoding="UTF-8") as readme:
     long_description = readme.read()
 
 version = "0.8.10"

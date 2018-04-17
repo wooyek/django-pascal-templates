@@ -1,11 +1,16 @@
 # coding=utf-8
 # Copyright 2014 Janusz Skonieczny
-import sys
-import os
-import uuid
-from setuptools import setup, find_packages
-from pip.req import parse_requirements
 import io
+import os
+import sys
+import uuid
+from setuptools import find_packages, setup
+
+try:  # for pip >= 10
+    # noinspection PyProtectedMember
+    from pip._internal.req import parse_requirements
+except ImportError:  # for pip <= 9.0.3
+    from pip.req import parse_requirements
 
 ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
 SRC_DIR = os.path.join(ROOT_DIR, 'src')
@@ -54,4 +59,3 @@ setup_kwargs = {
 }
 
 setup(**setup_kwargs)
-

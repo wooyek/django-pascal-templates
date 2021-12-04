@@ -1,25 +1,9 @@
 # coding=utf-8
 # Copyright 2014 Janusz Skonieczny
 import io
-import os
-import sys
-import uuid
 from setuptools import find_packages, setup
 
-try:  # for pip >= 10
-    # noinspection PyProtectedMember
-    from pip._internal.req import parse_requirements
-except ImportError:  # for pip <= 9.0.3
-    from pip.req import parse_requirements
 
-ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
-SRC_DIR = os.path.join(ROOT_DIR, 'src')
-sys.path.append(SRC_DIR)
-
-install_requires = parse_requirements(
-    os.path.join(os.path.dirname(__file__), "requirements.txt"),
-    session=uuid.uuid1()
-)
 with io.open("README.rst", encoding="UTF-8") as readme:
     long_description = readme.read()
 
@@ -30,7 +14,7 @@ setup_kwargs = {
     'version': version,
     'packages': find_packages("src", exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     'package_dir': {'': 'src'},
-    'install_requires': [str(r.req) for r in install_requires],
+    'install_requires': ['Django>=1.8'],
 
     # "package_data": {
     #     '': ['requirements.txt']
